@@ -1,0 +1,15 @@
+﻿@model Proyecto1_AndrésEsteller.Models.Ruta
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h2>Detalles de la Ruta</h2>
+
+<p><strong>Origen:</strong> @Model.Origen</p>
+<p><strong>Destino:</strong> @Model.Destino</p>
+<p><strong>Horario:</strong> @Model.Horario.ToString("dd/MM/yyyy HH:mm")</p>
+<p><strong>Precio:</strong> $@Model.Precio</p>
+
+<a asp-controller="Reserva" asp-action="Formulario" asp-route-rutaId="@Model.Id" class="btn btn-primary">Reservar Asiento</a>
+

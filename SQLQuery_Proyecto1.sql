@@ -1,0 +1,27 @@
+CREATE DATABASE Proyecto1
+GO
+USE Proyecto1
+GO
+CREATE TABLE Ruta (
+    Id INT PRIMARY KEY IDENTITY,
+    Origen NVARCHAR(50),
+    Destino NVARCHAR(50),
+    Horario DATETIME,
+    Precio DECIMAL(10, 2)
+);
+
+CREATE TABLE Usuario (
+    Id INT PRIMARY KEY IDENTITY,
+    Nombre NVARCHAR(50),
+    Email NVARCHAR(50) UNIQUE,
+    PasswordHash NVARCHAR(64),
+    Historial NVARCHAR(MAX)
+);
+
+CREATE TABLE Reserva (
+    Id INT PRIMARY KEY IDENTITY,
+    UsuarioId INT FOREIGN KEY REFERENCES Usuario(Id),
+    RutaId INT FOREIGN KEY REFERENCES Ruta(Id),
+    Asiento NVARCHAR(10),
+    EstadoPago NVARCHAR(20)
+);

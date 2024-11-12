@@ -1,0 +1,18 @@
+﻿@model Proyecto1_AndrésEsteller.Models.Reserva
+@{
+    ViewData["Title"] = "ConfirmarPago";
+}
+
+
+
+<h2>Reserva Confirmada</h2>
+
+<p>¡Gracias por tu reserva!</p>
+<p><strong>Ruta:</strong> @Model.Ruta.Origen a @Model.Ruta.Destino</p>
+<p><strong>Horario:</strong> @Model.Ruta.Horario.ToString("dd/MM/yyyy HH:mm")</p>
+<p><strong>Asiento:</strong> @Model.Asiento</p>
+<p><strong>Estado de Pago:</strong> Confirmado</p>
+
+<a href="/" class="btn btn-secondary">Volver a Inicio</a>
+
+

@@ -1,0 +1,30 @@
+﻿@model Proyecto1_AndrésEsteller.Models.Reserva
+@{
+    ViewData["Title"] = "Formulario";
+}
+
+
+
+<h2>Reserva de Asiento</h2>
+
+<p><strong>Ruta:</strong> @Model.Ruta.Origen a @Model.Ruta.Destino</p>
+<p><strong>Horario:</strong> @Model.Ruta.Horario.ToString("dd/MM/yyyy HH:mm")</p>
+<p><strong>Precio:</strong> $@Model.Ruta.Precio</p>
+
+<form asp-action="CrearReserva" method="post">
+    <input type="hidden" name="rutaId" value="@Model.RutaId" />
+
+    <div class="form-group">
+        <label>Seleccione un Asiento</label>
+        <select name="asiento" class="form-control" required>
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="A3">A3</option>
+            <!-- Añadir más asientos según disponibilidad -->
+        </select>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Reservar</button>
+</form>
+
+

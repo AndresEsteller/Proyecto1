@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Proyecto1_AndrésEsteller.Models.Ruta>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Buscar Rutas</h2>
+
+<form asp-action="Buscar" method="get">
+    <div class="form-group">
+        <label>Origen</label>
+        <input name="origen" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Destino</label>
+        <input name="destino" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Fecha</label>
+        <input name="fecha" type="date" class="form-control" required />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+<br />
+<br />
+<h2>Rutas Disponibles</h2>
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var ruta in Model)
+        {
+            <li>
+                <a asp-action="Detalles" asp-route-id="@ruta.Id">
+                    @ruta.Origen a @ruta.Destino - @ruta.Horario.ToString("dd/MM/yyyy HH:mm") - $@ruta.Precio
+                </a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No se encontraron rutas para los criterios de búsqueda especificados.</p>
+}
+
+
